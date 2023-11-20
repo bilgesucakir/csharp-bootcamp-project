@@ -1,4 +1,6 @@
 using DataAccess.Context;
+using DataAccess.Repositories.Abstract;
+using DataAccess.Repositories.Concrete;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +17,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BaseDbContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")
     ));
+builder.Services.AddScoped<IUserRepository, UserRepository>(); //ioc records
+builder.Services.AddScoped<ITripRepository, TripRepository>();
+builder.Services.AddScoped<IExcursionRepository, ExcursionRepository>();
 
 var app = builder.Build();
 

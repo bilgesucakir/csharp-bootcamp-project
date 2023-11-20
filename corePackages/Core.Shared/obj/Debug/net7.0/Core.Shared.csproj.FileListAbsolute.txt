@@ -1,0 +1,11 @@
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\bin\Debug\net7.0\Core.Shared.deps.json
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\bin\Debug\net7.0\Core.Shared.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\bin\Debug\net7.0\Core.Shared.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\Core.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\Core.Shared.AssemblyInfoInputs.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\Core.Shared.AssemblyInfo.cs
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\Core.Shared.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\Core.Shared.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\refint\Core.Shared.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\Core.Shared.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\corePackages\Core.Shared\obj\Debug\net7.0\ref\Core.Shared.dll

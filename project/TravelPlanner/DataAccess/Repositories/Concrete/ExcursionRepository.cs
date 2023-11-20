@@ -34,7 +34,7 @@ public class ExcursionRepository : EfRepositoryBase<BaseDbContext, Excursion, Gu
         return details;
     }
 
-    public List<ExcursionDetailDto> GetExcursionDetailByTripId(Guid TripId)
+    public List<ExcursionDetailDto> GetExcursionDetailsByTripId(Guid TripId)
     {
             var details = Context.Excursions.Where(x => x.TripID == TripId).Join(
                 Context.Trips,
@@ -77,8 +77,38 @@ public class ExcursionRepository : EfRepositoryBase<BaseDbContext, Excursion, Gu
         return detail;
     }
 
-    public List<ExcursionDetailDto> GetExcursionDetailByUserId(int userId) //can be removed
+    public List<ExcursionDetailDto> GetExcursionDetailsByUserId(int userId) //can be removed
     {
-        throw new NotImplementedException();
+        var excursionDetails = Context.Users
+        .Where(u => u.Id == userId)
+        .Join(
+            Context.Trips,
+            u => u.Id,
+            t => t.UserID,
+            (u, t) => new
+            {
+                Trip = t,
+                User = u
+            }
+        )
+        .Join(
+            Context.Excursions,
+            ut => ut.Trip.Id,
+            e => e.TripID,
+            (ut, e) => new ExcursionDetailDto
+            {
+                Id = e.Id,
+                Name = e.Name,
+                StartDate = e.StartDate,
+                EndDate = e.EndDate,
+                Location = e.Location,
+                Description = e.Description,
+                Cost = e.Cost,
+                TripTitle = ut.Trip.Title,
+            }
+        ).ToList();
+
+        return excursionDetails;
+
     }
 }
