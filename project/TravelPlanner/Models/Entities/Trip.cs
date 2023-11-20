@@ -21,7 +21,7 @@ public class Trip: Entity<Guid>
     public User User { get; set; }
 
     //trip-event
-    public List<Event> Events { get; set;}
+    public List<Activity> Activities { get; set;}
 
 
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Models.Entities;
 
-public class Event: Entity<Guid>
+public class Activity: Entity<Guid>
 {
     //guid
     public string Name { get; set; }
