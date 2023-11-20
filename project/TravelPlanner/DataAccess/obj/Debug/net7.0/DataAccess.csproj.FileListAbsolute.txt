@@ -1,0 +1,11 @@
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\bin\Debug\net7.0\DataAccess.deps.json
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\bin\Debug\net7.0\DataAccess.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfo.cs
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\refint\DataAccess.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll

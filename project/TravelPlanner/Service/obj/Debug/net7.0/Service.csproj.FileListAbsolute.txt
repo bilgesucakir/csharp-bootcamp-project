@@ -1,0 +1,11 @@
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\bin\Debug\net7.0\Service.deps.json
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\bin\Debug\net7.0\Service.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\bin\Debug\net7.0\Service.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\Service.AssemblyInfoInputs.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\Service.AssemblyInfo.cs
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\Service.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\refint\Service.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\Service.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\Service\obj\Debug\net7.0\ref\Service.dll

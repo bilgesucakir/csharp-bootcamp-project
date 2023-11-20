@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Models.Dtos.ResponseDto;
 
-public record ActivityResponseDto(Guid Id, string Name, DateTime StartDate, DateTime EndDate,
+public record ActivityResponseDto(
+    Guid Id, string Name, DateTime StartDate, DateTime EndDate,
     string Location, string Description, decimal Cost, Guid TripID)
 {
-    public static ActivityResponseDto ConvertToResponse(Activity activity)
+    public static implicit operator ActivityResponseDto(Activity activity)
     {
         return new ActivityResponseDto(
             Id: activity.Id,

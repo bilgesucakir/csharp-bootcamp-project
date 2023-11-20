@@ -11,18 +11,4 @@ public record ActivityUpdateRequest(Guid Id, string Name, DateTime StartDate, Da
     string Location, string Description, decimal Cost, Guid TripID)
 {
 
-    public static Activity ConvertToEntity(ActivityUpdateRequest activityUpdateRequest)
-    {
-        return new Activity
-        {
-            Id = activityUpdateRequest.Id,
-            Name = activityUpdateRequest.Name,
-            StartDate = activityUpdateRequest.StartDate,
-            EndDate = activityUpdateRequest.EndDate,
-            Location = activityUpdateRequest.Location,
-            Description = activityUpdateRequest.Description,
-            Cost = activityUpdateRequest.Cost,
-            TripID = activityUpdateRequest.TripID
-        };
-    }
 }

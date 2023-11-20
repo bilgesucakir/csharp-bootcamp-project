@@ -1,4 +1,5 @@
 ﻿using Core.Persistence.EntityBaseModel;
+using Models.Dtos.RequestDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,27 @@ public class Trip: Entity<Guid>
     //trip-event
     public List<Activity> Activities { get; set;}
 
+    //operators
+    public static implicit operator Trip(TripAddRequest tripAddRequest)
+        => new Trip
+        {
+            Title = tripAddRequest.Title,
+            Description = tripAddRequest.Description,
+            StartDate = tripAddRequest.StartDate,
+            EndDate = tripAddRequest.EndDate,
+            Budget = tripAddRequest.Budget,
+            UserID = tripAddRequest.UserID
+        };
 
+    public static implicit operator Trip(TripUpdateRequest tripUpdateRequest)
+        => new Trip
+        {
+            Id = tripUpdateRequest.Id,
+            Title = tripUpdateRequest.Title,
+            Description = tripUpdateRequest.Description,
+            StartDate = tripUpdateRequest.StartDate,
+            EndDate = tripUpdateRequest.EndDate,
+            Budget = tripUpdateRequest.Budget,
+            UserID = tripUpdateRequest.UserID
+        };
 }

@@ -1,4 +1,5 @@
 ﻿using Core.Persistence.EntityBaseModel;
+using Models.Dtos.RequestDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,4 +23,29 @@ public class Activity: Entity<Guid>
     public Guid TripID { get; set; } //foreign key
     public Trip Trip { get; set; }
 
+    //operators
+    public static implicit operator Activity(ActivityAddRequest activityAddRequest)
+        => new Activity
+        {
+            Name = activityAddRequest.Name,
+            StartDate = activityAddRequest.StartDate,
+            EndDate = activityAddRequest.EndDate,
+            Location = activityAddRequest.Location,
+            Description = activityAddRequest.Description,
+            Cost = activityAddRequest.Cost,
+            TripID = activityAddRequest.TripID
+        };
+
+    public static implicit operator Activity(ActivityUpdateRequest activityUpdateRequest)
+        => new Activity
+        {
+            Id = activityUpdateRequest.Id,
+            Name = activityUpdateRequest.Name,
+            StartDate = activityUpdateRequest.StartDate,
+            EndDate = activityUpdateRequest.EndDate,
+            Location = activityUpdateRequest.Location,
+            Description = activityUpdateRequest.Description,
+            Cost = activityUpdateRequest.Cost,
+            TripID = activityUpdateRequest.TripID
+        };
 }
