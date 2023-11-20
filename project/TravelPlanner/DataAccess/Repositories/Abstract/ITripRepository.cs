@@ -1,0 +1,20 @@
+﻿using Core.Persistence.Repositories;
+using Models.Dtos.ResponseDto;
+using Models.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccess.Repositories.Abstract;
+
+public interface ITripRepository : IEntityRepository<Trip, Guid>
+{
+
+    List<TripDetailDto> GetAllTripDetails();
+
+    List<TripDetailDto> GetTripDetailByUserId(int UserId);
+
+    TripDetailDto GetTripDetail(Guid id);
+}

@@ -22,7 +22,7 @@ public class Trip: Entity<Guid>
     public User User { get; set; }
 
     //trip-event
-    public List<Activity> Activities { get; set;}
+    public List<Excursion> Excursions { get; set;}
 
     //operators
     public static implicit operator Trip(TripAddRequest tripAddRequest)
