@@ -18,4 +18,18 @@ public class BaseDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Trip> Trips { get; set; }
     public DbSet<Excursion> Excursions { get; set; }
+
+    //error fix
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Excursion>()
+            .Property(e => e.Cost)
+            .HasColumnType("decimal(18,2)");
+
+        modelBuilder.Entity<Trip>()
+            .Property(t => t.Budget)
+            .HasColumnType("decimal(18,2)");
+    }
 }

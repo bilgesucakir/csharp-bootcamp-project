@@ -59,7 +59,7 @@ public class ExcursionRepository : EfRepositoryBase<BaseDbContext, Excursion, Gu
     {
         var detail = Context.Excursions.Join(
             Context.Trips,
-            e => e.Id,
+            e => e.TripID,
             t => t.Id,
             (e, t) => new ExcursionDetailDto
             {
