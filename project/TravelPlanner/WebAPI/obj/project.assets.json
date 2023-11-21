@@ -1239,6 +1239,16 @@
           }
         }
       },
+      "Core.CrossCuttingConcerns/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Core.CrossCuttingConcerns.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.CrossCuttingConcerns.dll": {}
+        }
+      },
       "Core.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1250,6 +1260,16 @@
         },
         "runtime": {
           "bin/placeholder/Core.Persistence.dll": {}
+        }
+      },
+      "Core.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Core.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.Shared.dll": {}
         }
       },
       "DataAccess/1.0.0": {
@@ -1283,6 +1303,12 @@
       "Service/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Core.CrossCuttingConcerns": "1.0.0",
+          "Core.Shared": "1.0.0",
+          "DataAccess": "1.0.0",
+          "Models": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Service.dll": {}
         },
@@ -3960,10 +3986,20 @@
         "version.txt"
       ]
     },
+    "Core.CrossCuttingConcerns/1.0.0": {
+      "type": "project",
+      "path": "../../../corePackages/Core.CrossCuttingConcerns/Core.CrossCuttingConcerns.csproj",
+      "msbuildProject": "../../../corePackages/Core.CrossCuttingConcerns/Core.CrossCuttingConcerns.csproj"
+    },
     "Core.Persistence/1.0.0": {
       "type": "project",
       "path": "../../../corePackages/Core.Persistence/Core.Persistence.csproj",
       "msbuildProject": "../../../corePackages/Core.Persistence/Core.Persistence.csproj"
+    },
+    "Core.Shared/1.0.0": {
+      "type": "project",
+      "path": "../../../corePackages/Core.Shared/Core.Shared.csproj",
+      "msbuildProject": "../../../corePackages/Core.Shared/Core.Shared.csproj"
     },
     "DataAccess/1.0.0": {
       "type": "project",
