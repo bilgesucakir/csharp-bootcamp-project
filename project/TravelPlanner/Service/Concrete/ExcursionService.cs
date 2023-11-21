@@ -60,8 +60,6 @@ public class ExcursionService : IExcursionService
                 StatusCode = System.Net.HttpStatusCode.BadRequest
             };
         }
-        
-
     }
 
     public Response<ExcursionResponseDto> Delete(Guid id)

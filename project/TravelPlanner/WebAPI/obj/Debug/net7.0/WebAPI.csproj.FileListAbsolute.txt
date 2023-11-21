@@ -82,3 +82,7 @@ C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\W
 C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Models.pdb
 C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Service.dll
 C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Service.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Core.CrossCuttingConcerns.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Core.Shared.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\WebAPI\bin\Debug\net7.0\Core.Shared.pdb

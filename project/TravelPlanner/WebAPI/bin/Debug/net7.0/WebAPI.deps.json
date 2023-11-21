@@ -677,12 +677,22 @@
           }
         }
       },
+      "Core.CrossCuttingConcerns/1.0.0": {
+        "runtime": {
+          "Core.CrossCuttingConcerns.dll": {}
+        }
+      },
       "Core.Persistence/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.9"
         },
         "runtime": {
           "Core.Persistence.dll": {}
+        }
+      },
+      "Core.Shared/1.0.0": {
+        "runtime": {
+          "Core.Shared.dll": {}
         }
       },
       "DataAccess/1.0.0": {
@@ -704,6 +714,12 @@
         }
       },
       "Service/1.0.0": {
+        "dependencies": {
+          "Core.CrossCuttingConcerns": "1.0.0",
+          "Core.Shared": "1.0.0",
+          "DataAccess": "1.0.0",
+          "Models": "1.0.0"
+        },
         "runtime": {
           "Service.dll": {}
         }
@@ -1234,7 +1250,17 @@
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
+    "Core.CrossCuttingConcerns/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Core.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
