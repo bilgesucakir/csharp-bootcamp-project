@@ -18,11 +18,14 @@ public interface ITripService
     Response<TripResponseDto> GetById(Guid id);
     Response<List<TripResponseDto>> GetAll();
 
-    Response<List<TripResponseDto>> GetAllByStartDateRange(DateTime min, DateTime max);
-    Response<List<TripResponseDto>> GetAllByEndDateRange(DateTime min, DateTime max);
-    Response<List<TripResponseDto>> GetAllByBudgetLessThan(decimal budgetThreshold);
-    Response<List<TripResponseDto>> GetAllByBudgetMoreThan(decimal budgetThreshold);
-
+    Response<List<TripResponseDto>> GetAllFiltered(
+        DateTime? minStartDate,
+        DateTime? maxStartDate,
+        DateTime? minEndDate,
+        DateTime? maxEndDate,
+        decimal? minBudget,
+        decimal? maxBudget
+    );
 
     Response<TripDetailDto> GetDetailById(Guid id);
     Response<List<TripDetailDto>> GetAllDetails();

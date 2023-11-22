@@ -2,6 +2,7 @@
 using Core.Shared;
 using DataAccess.Repositories.Abstract;
 using DataAccess.Repositories.Concrete;
+using Microsoft.IdentityModel.Tokens;
 using Models.Dtos.RequestDto;
 using Models.Dtos.ResponseDto;
 using Models.Entities;
@@ -97,22 +98,22 @@ public class UserService : IUserService
         };
     }
 
-    public Response<List<UserResponseDto>> GetAllByName(string name)
+    public Response<List<UserResponseDto>> GetAllFiltered(string? name, string? surname)
     {
-        var users = _userRepository.GetAll(x=> x.Name == name);
-        var responses = users.Select(x => (UserResponseDto)x).ToList();
+        var filteredUsers = _userRepository.GetAll();
 
-        return new Response<List<UserResponseDto>>()
+        //applying filters based on the provided values
+        if (!name.IsNullOrEmpty())
         {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
+            filteredUsers = filteredUsers.Where(x => x.Name == name).ToList();
+        }
 
-    public Response<List<UserResponseDto>> GetAllBySurname(string surname)
-    {
-        var users = _userRepository.GetAll(x=> x.Surname == surname);
-        var responses = users.Select(x => (UserResponseDto)x).ToList();
+        if (!surname.IsNullOrEmpty())
+        {
+            filteredUsers = filteredUsers.Where(x => x.Surname == surname).ToList();
+        }
+
+        var responses = filteredUsers.Select(x => (UserResponseDto)x).ToList();
 
         return new Response<List<UserResponseDto>>()
         {

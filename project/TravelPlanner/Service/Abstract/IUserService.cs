@@ -17,7 +17,6 @@ public interface IUserService
     Response<UserResponseDto> GetById(int id);
     Response<List<UserResponseDto>> GetAll();
 
+    Response<List<UserResponseDto>> GetAllFiltered(string? name, string? surname);
 
-    Response<List<UserResponseDto>> GetAllByName(string name);
-    Response<List<UserResponseDto>> GetAllBySurname(string surname);
 }

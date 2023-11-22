@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Models.Dtos.RequestDto;
 using Service.Abstract;
+using Service.Concrete;
 
 namespace WebAPI.Controllers;
 
@@ -17,14 +20,58 @@ public class UsersController : BaseController
         _userService = userService;
     }
 
+    [HttpPost]
+    public IActionResult Add([FromBody] UserAddRequest userAddRequest)
+    {
+        var result = _userService.Add(userAddRequest);
 
+        return ActionResultInstance(result);
+    }
 
+    [HttpPut]
+    public IActionResult Update([FromBody] UserUpdateRequest userUpdateRequest)
+    {
+        var result = _userService.Update(userUpdateRequest);
 
-    //... other methods
+        return ActionResultInstance(result);
+    }
 
+    [HttpDelete]
+    public IActionResult Delete([FromQuery] int id)
+    {
+        var result = _userService.Delete(id);
 
+        return ActionResultInstance(result);
+    }
 
+    [HttpGet()]
+    public IActionResult GetAllOptionalFilters(
+        [FromQuery] string? name,
+        [FromQuery] string? surname
+    )
+    {
+        if (name.IsNullOrEmpty() && surname.IsNullOrEmpty())
+        {
+            var result = _userService.GetAll();
 
+            return ActionResultInstance(result);
+        }
+        else
+        {
+            var result = _userService.GetAllFiltered(name, surname);
+
+            return ActionResultInstance(result);
+        }
+
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetById(int id)
+    {
+        var result = _userService.GetById(id);
+
+        return ActionResultInstance(result);
+    }
 
     [HttpGet("{id}/trips/details")]
     public IActionResult GetExcursionDetailsByTripId(int id)

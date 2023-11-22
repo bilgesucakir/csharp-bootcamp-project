@@ -5,6 +5,8 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Service.Abstract;
 using Service.Concrete;
+using Service.Rules.Abstract;
+using Service.Rules.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,9 @@ builder.Services.AddScoped<IExcursionRepository, ExcursionRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITripService, TripService>();
 builder.Services.AddScoped<IExcursionService, ExcursionService>();
+builder.Services.AddScoped<IUserRules, UserRules>();  
+builder.Services.AddScoped<ITripRules, TripRules>(); 
+builder.Services.AddScoped<IExcursionRules, ExcursionRules>();
 
 var app = builder.Build();
 

@@ -100,54 +100,6 @@ public class TripService : ITripService
         };
     }
 
-    public Response<List<TripResponseDto>> GetAllByBudgetLessThan(decimal budgetThreshold)
-    {
-        var trips = _tripRepository.GetAll(x => x.Budget < budgetThreshold);
-        var responses = trips.Select(x => (TripResponseDto)x).ToList();
-
-        return new Response<List<TripResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<TripResponseDto>> GetAllByBudgetMoreThan(decimal budgetThreshold)
-    {
-        var trips = _tripRepository.GetAll(x => x.Budget > budgetThreshold);
-        var responses = trips.Select(x => (TripResponseDto)x).ToList();
-
-        return new Response<List<TripResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<TripResponseDto>> GetAllByEndDateRange(DateTime min, DateTime max)
-    {
-        var trips = _tripRepository.GetAll(x => x.EndDate <= max && x.EndDate >= min);
-        var responses = trips.Select(x => (TripResponseDto)x).ToList();
-
-        return new Response<List<TripResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<TripResponseDto>> GetAllByStartDateRange(DateTime min, DateTime max)
-    {
-        var trips = _tripRepository.GetAll(x => x.StartDate <= max && x.StartDate >= min);
-        var responses = trips.Select(x => (TripResponseDto)x).ToList();
-
-        return new Response<List<TripResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
     public Response<List<TripDetailDto>> GetAllDetails()
     {
         var details = _tripRepository.GetAllTripDetails();
@@ -155,6 +107,57 @@ public class TripService : ITripService
         return new Response<List<TripDetailDto>>()
         {
             Data = details,
+            StatusCode = System.Net.HttpStatusCode.OK
+        };
+    }
+
+    public Response<List<TripResponseDto>> GetAllFiltered(
+        DateTime? minStartDate, 
+        DateTime? maxStartDate, 
+        DateTime? minEndDate, 
+        DateTime? maxEndDate, 
+        decimal? minBudget, 
+        decimal? maxBudget
+    )
+    {
+        var filteredTrips = _tripRepository.GetAll();
+
+        //applying filters based on the provided values
+        if (minBudget != null && minBudget >= 0)
+        {
+            filteredTrips = filteredTrips.Where(x => x.Budget >= minBudget).ToList();
+        }
+
+        if (maxBudget != null && maxBudget >= 0)
+        {
+            filteredTrips = filteredTrips.Where(x => x.Budget <= maxBudget).ToList();
+        }
+
+        if (minStartDate != null)
+        {
+            filteredTrips = filteredTrips.Where(x => x.StartDate >= minStartDate).ToList();
+        }
+
+        if (maxStartDate != null)
+        {
+            filteredTrips = filteredTrips.Where(x => x.StartDate <= maxStartDate).ToList();
+        }
+
+        if (minEndDate != null)
+        {
+            filteredTrips = filteredTrips.Where(x => x.EndDate >= minEndDate).ToList();
+        }
+
+        if (maxEndDate != null)
+        {
+            filteredTrips = filteredTrips.Where(x => x.EndDate <= maxEndDate).ToList();
+        }
+
+        var responses = filteredTrips.Select(x => (TripResponseDto)x).ToList();
+
+        return new Response<List<TripResponseDto>>()
+        {
+            Data = responses,
             StatusCode = System.Net.HttpStatusCode.OK
         };
     }
