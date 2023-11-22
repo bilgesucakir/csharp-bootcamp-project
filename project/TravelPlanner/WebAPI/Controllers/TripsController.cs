@@ -6,7 +6,7 @@ using Service.Abstract;
 
 namespace WebAPI.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/trips")]
 [ApiController]
 public class TripsController : BaseController
 {

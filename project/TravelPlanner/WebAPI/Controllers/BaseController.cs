@@ -13,8 +13,8 @@ public class BaseController : ControllerBase
             case System.Net.HttpStatusCode.OK:
                 return Ok(response);
             case System.Net.HttpStatusCode.Created:
-                return BadRequest(response);
-            case System.Net.HttpStatusCode.BadGateway:
+                return Created("/", response);
+            case System.Net.HttpStatusCode.BadRequest:
                 return BadRequest(response);
             default: 
                 return NotFound();

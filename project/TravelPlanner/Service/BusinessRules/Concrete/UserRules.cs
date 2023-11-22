@@ -27,10 +27,19 @@ public class UserRules : IUserRules
         }
     }
 
-    public void EmailMustBeUnique(string email)
+    public void EmailMustBeUniqueForAdd(string email)
     {
         var user = _userRepository.GetByFilter(x => x.Email == email);
-        if (email != null)
+        if (user != null)
+        {
+            throw new BusinessException("Email must be unique");
+        }
+    }
+
+    public void EmailMustBeUniqueForUpdate(string email, int id)
+    {
+        var user = _userRepository.GetByFilter(x => x.Email == email && x.Id != id);
+        if (user != null)
         {
             throw new BusinessException("Email must be unique");
         }

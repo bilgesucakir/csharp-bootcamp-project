@@ -18,5 +18,6 @@ public record ExcursionDetailDto
     public decimal Cost { get; set; }
 
     public string TripTitle { get; set; }
-    //other trip fields?
+    public DateTime TripStartDate { get; set;}
+    public DateTime TripEndDate { get; set; }
 };

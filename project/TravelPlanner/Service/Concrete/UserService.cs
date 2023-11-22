@@ -34,7 +34,7 @@ public class UserService : IUserService
         {
             User user = userAddRequest;
 
-            _userRules.EmailMustBeUnique(user.Email);
+            _userRules.EmailMustBeUniqueForAdd(user.Email);
 
             _userRepository.Add(user);
 
@@ -154,7 +154,15 @@ public class UserService : IUserService
         {
             User user = userUpdateRequest;
 
-            _userRules.EmailMustBeUnique(user.Email);
+            if(user.Id != 0) //existing record will be updated, email must be unique than other records but also it can remain the same
+            {
+                _userRules.EmailMustBeUniqueForUpdate(user.Email, user.Id);
+            }
+            else //new record, so email must be unique
+            {
+                _userRules.EmailMustBeUniqueForAdd(user.Email);
+            }
+            
             _userRepository.Update(user);
 
             UserResponseDto userResponse = user;

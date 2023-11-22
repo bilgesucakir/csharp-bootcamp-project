@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace Service.Rules.Abstract;
 
 public interface IUserRules
 {
-    public void EmailMustBeUnique(string email);
+    public void EmailMustBeUniqueForAdd(string email);
+
+    public void EmailMustBeUniqueForUpdate(string email, int id);
 
     public void UserIsPresent(int id);
 }

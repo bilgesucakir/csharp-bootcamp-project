@@ -26,7 +26,9 @@ public class ExcursionRepository : EfRepositoryBase<BaseDbContext, Excursion, Gu
                 Location = excursion.Location,
                 Description = excursion.Description,
                 Cost = excursion.Cost,
-                TripTitle = trip.Title
+                TripTitle = trip.Title,
+                TripStartDate = trip.StartDate,
+                TripEndDate = trip.EndDate,
             }
             ).ToList();
 
@@ -43,6 +45,8 @@ public class ExcursionRepository : EfRepositoryBase<BaseDbContext, Excursion, Gu
                 (e, t) => new ExcursionDetailDto
                 {
                     TripTitle = t.Title,
+                    TripStartDate = t.StartDate,
+                    TripEndDate = t.EndDate,
                     Id = e.Id,
                     Name = e.Name,
                     StartDate = e.StartDate,
@@ -64,6 +68,8 @@ public class ExcursionRepository : EfRepositoryBase<BaseDbContext, Excursion, Gu
             (e, t) => new ExcursionDetailDto
             {
                 TripTitle = t.Title,
+                TripStartDate = t.StartDate,
+                TripEndDate = t.EndDate,
                 Id = e.Id,
                 Name = e.Name,
                 StartDate = e.StartDate,

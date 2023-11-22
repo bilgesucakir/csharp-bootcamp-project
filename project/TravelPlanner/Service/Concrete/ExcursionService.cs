@@ -22,14 +22,12 @@ public class ExcursionService : IExcursionService
     private readonly IExcursionRepository _excursionRepository;
     private readonly IExcursionRules _excursionRules;
     private readonly ITripRules _tripRules;
-    private readonly IUserRules _userRules;
 
-    public ExcursionService(IExcursionRepository productRepository, IExcursionRules excursionRules, ITripRules tripRules, IUserRules userRules)
+    public ExcursionService(IExcursionRepository productRepository, IExcursionRules excursionRules, ITripRules tripRules)
     {
         _excursionRepository = productRepository;
         _excursionRules = excursionRules;
         _tripRules = tripRules;
-        _userRules = userRules;
     }
 
     public Response<ExcursionResponseDto> Add(ExcursionAddRequest excursionAddRequest)
@@ -39,6 +37,10 @@ public class ExcursionService : IExcursionService
             Excursion excursion = excursionAddRequest;
 
             _excursionRules.StartDateMustBeSmallerThanEndDate(excursion.StartDate, excursion.EndDate);
+
+            _excursionRules.ExcursionDateRengeMustBeInTripDateRange(excursion.StartDate, excursion.EndDate, excursion.TripID);
+
+            _tripRules.TripIsPresent(excursion.TripID);
 
             excursion.Id = new Guid();
             _excursionRepository.Add(excursion);
@@ -249,6 +251,11 @@ public class ExcursionService : IExcursionService
             Excursion excursion = excursionUpdateRequest;
 
             _excursionRules.StartDateMustBeSmallerThanEndDate(excursion.StartDate, excursion.EndDate);
+
+            _excursionRules.ExcursionDateRengeMustBeInTripDateRange(excursion.StartDate, excursion.EndDate, excursion.TripID);
+
+            _tripRules.TripIsPresent(excursion.TripID);
+
             _excursionRepository.Update(excursion);
 
             ExcursionResponseDto excursionResponse = excursion;

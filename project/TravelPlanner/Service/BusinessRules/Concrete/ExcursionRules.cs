@@ -14,10 +14,24 @@ public class ExcursionRules : IExcursionRules
 {
 
     private readonly IExcursionRepository _excursionRepository;
+    private readonly ITripRepository _tripRepository;
 
-    public ExcursionRules(IExcursionRepository excursionRepository)
+    public ExcursionRules(IExcursionRepository excursionRepository, ITripRepository tripRepository)
     {
         _excursionRepository = excursionRepository;
+        _tripRepository = tripRepository;
+    }
+
+    public void ExcursionDateRengeMustBeInTripDateRange(DateTime excursionStartDate, DateTime excursionEndDate, Guid tripId) //might thow error with repo, check 
+    {
+
+        var tripStartDate = _tripRepository.GetById(tripId).StartDate;
+        var tripEndDate = _tripRepository.GetById(tripId).EndDate;
+
+        if(tripStartDate > excursionStartDate || tripEndDate < excursionEndDate) 
+        {
+            throw new BusinessException($"Excursion date range cannot be outside of trip date range");
+        }
     }
 
     public void ExcursionIsPresent(Guid id)

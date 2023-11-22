@@ -12,4 +12,7 @@ public interface IExcursionRules
     public void StartDateMustBeSmallerThanEndDate(DateTime start, DateTime end);
 
     public void ExcursionIsPresent(Guid id);
+
+    public void ExcursionDateRengeMustBeInTripDateRange(DateTime excursionStartDate, DateTime excursionEndDate, Guid tripId);
+
 }

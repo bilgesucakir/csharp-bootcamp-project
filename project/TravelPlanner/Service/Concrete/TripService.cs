@@ -37,6 +37,8 @@ public class TripService : ITripService
 
             _tripRules.StartDateMustBeSmallerThanEndDate(trip.StartDate, trip.EndDate);
 
+            _userRules.UserIsPresent(trip.UserID);
+
             trip.Id = new Guid();
             _tripRepository.Add(trip);
 
@@ -240,6 +242,9 @@ public class TripService : ITripService
             Trip trip = tripUpdateRequest;
 
             _tripRules.StartDateMustBeSmallerThanEndDate(trip.StartDate, trip.EndDate);
+
+            _userRules.UserIsPresent(trip.UserID);
+
             _tripRepository.Update(trip);
 
             TripResponseDto tripResponse = trip;

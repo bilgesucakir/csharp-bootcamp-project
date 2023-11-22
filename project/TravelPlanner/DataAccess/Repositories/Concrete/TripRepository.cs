@@ -30,7 +30,9 @@ public class TripRepository : EfRepositoryBase<BaseDbContext, Trip, Guid>, ITrip
                 StartDate = trip.StartDate,
                 EndDate = trip.EndDate,
                 Budget = trip.Budget,
-                UserEmail = user.Email
+                UserEmail = user.Email,
+                UserName = user.Name,
+                UserSurname = user.Surname
 
             }
             ).ToList();
@@ -53,7 +55,9 @@ public class TripRepository : EfRepositoryBase<BaseDbContext, Trip, Guid>, ITrip
                 StartDate = t.StartDate,
                 EndDate = t.EndDate,
                 Budget = t.Budget,
-                UserEmail = u.Email
+                UserEmail = u.Email,
+                UserName = u.Name,
+                UserSurname = u.Surname
             }
             ).SingleOrDefault(x => x.Id == id);
 
@@ -74,7 +78,9 @@ public class TripRepository : EfRepositoryBase<BaseDbContext, Trip, Guid>, ITrip
                     StartDate = t.StartDate,
                     EndDate = t.EndDate,
                     Budget = t.Budget,
-                    UserEmail = u.Email
+                    UserEmail = u.Email,
+                    UserName = u.Name,
+                    UserSurname = u.Surname
                 }
                 ).ToList();
         return details;

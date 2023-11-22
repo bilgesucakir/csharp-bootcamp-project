@@ -7,7 +7,7 @@ using Service.Concrete;
 
 namespace WebAPI.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/users")]
 [ApiController]
 public class UsersController : BaseController
 {
