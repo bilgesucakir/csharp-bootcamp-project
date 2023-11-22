@@ -28,6 +28,8 @@ public interface IExcursionService
         string? location
     );
 
+    Response<List<ExcursionResponseDto>> GetByTripId(Guid tripId);
+
     Response<ExcursionDetailDto> GetDetailById(Guid id);
     Response<List<ExcursionDetailDto>> GetAllDetails();
     Response<List<ExcursionDetailDto>> GetDetailsByTripId(Guid tripId);

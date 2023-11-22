@@ -35,8 +35,8 @@ public class TripsController : BaseController
         return ActionResultInstance(result);
     }
 
-    [HttpDelete]
-    public IActionResult Delete([FromQuery] Guid id)
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
     {
         var result = _tripService.Delete(id);
 
@@ -80,6 +80,14 @@ public class TripsController : BaseController
         return ActionResultInstance(result);
     }
 
+    [HttpGet("{id}/excursions")]
+    public IActionResult GetExcursionsByTripId(Guid id)
+    {
+        var result = _excursionService.GetByTripId(id);
+
+        return ActionResultInstance(result);
+    }
+
     [HttpGet("details")]
     public IActionResult GetAllDetails()
     {
@@ -103,4 +111,6 @@ public class TripsController : BaseController
 
         return ActionResultInstance(result);
     }
+
+
 }

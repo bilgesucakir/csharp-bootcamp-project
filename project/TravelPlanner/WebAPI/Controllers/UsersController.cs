@@ -36,8 +36,8 @@ public class UsersController : BaseController
         return ActionResultInstance(result);
     }
 
-    [HttpDelete]
-    public IActionResult Delete([FromQuery] int id)
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
     {
         var result = _userService.Delete(id);
 
@@ -73,8 +73,16 @@ public class UsersController : BaseController
         return ActionResultInstance(result);
     }
 
+    [HttpGet("{id}/trips")]
+    public IActionResult GetTripssByUserId(int id)
+    {
+        var result = _tripService.GetByUserId(id);
+
+        return ActionResultInstance(result);
+    }
+
     [HttpGet("{id}/trips/details")]
-    public IActionResult GetExcursionDetailsByTripId(int id)
+    public IActionResult GetTripDetailsByUserId(int id)
     {
         var result = _tripService.GetDetailsByUserId(id);
 

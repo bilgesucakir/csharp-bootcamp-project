@@ -2,11 +2,13 @@
 using Core.CrossCuttingConcerns.Exceptions;
 using Core.Shared;
 using DataAccess.Repositories.Abstract;
+using DataAccess.Repositories.Concrete;
 using Models.Dtos.RequestDto;
 using Models.Dtos.ResponseDto;
 using Models.Entities;
 using Service.Abstract;
 using Service.Rules.Abstract;
+using Service.Rules.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -227,7 +229,9 @@ public class ExcursionService : IExcursionService
         try
         {
             _tripRules.TripIsPresent(tripId);
+
             var details = _excursionRepository.GetExcursionDetailsByTripId(tripId);
+
             return new Response<List<ExcursionDetailDto>>()
             {
                 Data = details,
@@ -237,6 +241,32 @@ public class ExcursionService : IExcursionService
         catch (BusinessException ex)
         {
             return new Response<List<ExcursionDetailDto>>()
+            {
+                Message = ex.Message,
+                StatusCode = System.Net.HttpStatusCode.BadRequest
+            };
+        }
+    }
+
+    public Response<List<ExcursionResponseDto>> GetByTripId(Guid tripId)
+    {
+        try
+        {
+            _tripRules.TripIsPresent(tripId);
+
+            var excursions = _excursionRepository.GetAll().Where(x => x.TripID.Equals(tripId)).ToList();
+
+            var responses = excursions.Select(x => (ExcursionResponseDto)x).ToList();
+
+            return new Response<List<ExcursionResponseDto>>()
+            {
+                Data = responses,
+                StatusCode = System.Net.HttpStatusCode.OK
+            };
+        }
+        catch (BusinessException ex)
+        {
+            return new Response<List<ExcursionResponseDto>>()
             {
                 Message = ex.Message,
                 StatusCode = System.Net.HttpStatusCode.BadRequest

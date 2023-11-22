@@ -27,6 +27,8 @@ public interface ITripService
         decimal? maxBudget
     );
 
+    Response<List<TripResponseDto>> GetByUserId(int userId);
+
     Response<TripDetailDto> GetDetailById(Guid id);
     Response<List<TripDetailDto>> GetAllDetails();
     Response<List<TripDetailDto>> GetDetailsByUserId(int userId);

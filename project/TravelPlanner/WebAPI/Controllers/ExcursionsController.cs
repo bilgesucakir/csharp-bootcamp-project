@@ -33,8 +33,8 @@ public class ExcursionsController : BaseController
         return ActionResultInstance(result);
     }
 
-    [HttpDelete]
-    public IActionResult Delete([FromQuery] Guid id)
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
     {
         var result = _excursionService.Delete(id);
 

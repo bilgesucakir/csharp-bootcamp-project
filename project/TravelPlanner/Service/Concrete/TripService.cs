@@ -235,6 +235,32 @@ public class TripService : ITripService
         }
     }
 
+    public Response<List<TripResponseDto>> GetByUserId(int userId)
+    {
+        try
+        {
+            _userRules.UserIsPresent(userId);
+
+            var trips = _tripRepository.GetAll().Where(x => x.UserID.Equals(userId)).ToList();
+
+            var responses = trips.Select(x => (TripResponseDto)x).ToList();
+
+            return new Response<List<TripResponseDto>>()
+            {
+                Data = responses,
+                StatusCode = System.Net.HttpStatusCode.OK
+            };
+        }
+        catch (BusinessException ex)
+        {
+            return new Response<List<TripResponseDto>>()
+            {
+                Message = ex.Message,
+                StatusCode = System.Net.HttpStatusCode.BadRequest
+            };
+        }
+    }
+
     public Response<TripResponseDto> Update(TripUpdateRequest tripUpdateRequest)
     {
         try

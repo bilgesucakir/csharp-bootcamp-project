@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.Dtos.RequestDto;
 
-public record TripAddRequest(Guid Id, string Title, string Description, DateTime StartDate, DateTime EndDate,
+public record TripAddRequest(string Title, string Description, DateTime StartDate, DateTime EndDate,
     decimal Budget, int UserID)
 {
     //User List<Activity>?
