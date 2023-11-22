@@ -17,3 +17,5 @@ C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\D
 C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.csproj.AssemblyReference.cache
 C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CopyComplete
 C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\bin\Debug\net7.0\Core.CrossCuttingConcerns.dll
+C:\Users\USER\Documents\Bootcamp\csharp-bootcamp-project\project\TravelPlanner\DataAccess\bin\Debug\net7.0\Core.CrossCuttingConcerns.pdb

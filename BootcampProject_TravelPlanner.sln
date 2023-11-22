@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{A858
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TravelPlanner", "TravelPlanner", "{7025D279-5B79-408D-9D34-6D9448BC1A06}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unitTest", "unitTest", "{7F864E9C-DF07-4966-9B0C-EDA2B7CAAF12}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "project\TravelPlanner\Models\Models.csproj", "{57080E31-4448-43A9-8117-60A007409B89}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "project\TravelPlanner\DataAccess\DataAccess.csproj", "{92F1C2BC-C402-4862-8422-11580E660364}"
@@ -23,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Persistence", "corePac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Shared", "corePackages\Core.Shared\Core.Shared.csproj", "{54BBE776-CA7D-4CB8-A0A6-7A69717EE0D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns", "corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{CA7539C3-27F3-456E-AD89-E20F4A19B579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.CrossCuttingConcerns", "corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{CA7539C3-27F3-456E-AD89-E20F4A19B579}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,7 +63,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7025D279-5B79-408D-9D34-6D9448BC1A06} = {A8585EF6-6A3A-4B96-9609-817E27A22090}
-		{7F864E9C-DF07-4966-9B0C-EDA2B7CAAF12} = {A8585EF6-6A3A-4B96-9609-817E27A22090}
 		{57080E31-4448-43A9-8117-60A007409B89} = {7025D279-5B79-408D-9D34-6D9448BC1A06}
 		{92F1C2BC-C402-4862-8422-11580E660364} = {7025D279-5B79-408D-9D34-6D9448BC1A06}
 		{E7ADF9B3-9615-4EB6-995E-3C06183245EE} = {7025D279-5B79-408D-9D34-6D9448BC1A06}
