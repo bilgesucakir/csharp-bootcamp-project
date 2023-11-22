@@ -16,7 +16,5 @@ public interface IExcursionRepository : IEntityRepository<Excursion, Guid>
 
     List<ExcursionDetailDto> GetExcursionDetailsByTripId(Guid TripId);
 
-    List<ExcursionDetailDto> GetExcursionDetailsByUserId(int userId); //can be removed
-
     ExcursionDetailDto GetExcursionDetail(Guid id);
 }

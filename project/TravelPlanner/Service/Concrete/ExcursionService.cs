@@ -104,66 +104,6 @@ public class ExcursionService : IExcursionService
         };
     }
 
-    public Response<List<ExcursionResponseDto>> GetAllByCostLessThan(decimal costThreshold)
-    {
-        var excursions = _excursionRepository.GetAll(x=> x.Cost < costThreshold);
-        var responses = excursions.Select(x => (ExcursionResponseDto)x).ToList();
-
-        return new Response<List<ExcursionResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<ExcursionResponseDto>> GetAllByCostMoreThan(decimal costThreshold)
-    {
-        var excursions = _excursionRepository.GetAll(x => x.Cost > costThreshold);
-        var responses = excursions.Select(x => (ExcursionResponseDto)x).ToList();
-
-        return new Response<List<ExcursionResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<ExcursionResponseDto>> GetAllByEndDateRange(DateTime min, DateTime max)
-    {
-        var excursions = _excursionRepository.GetAll(x => x.EndDate <= max && x.EndDate >= min);
-        var responses = excursions.Select(x => (ExcursionResponseDto)x).ToList();
-
-        return new Response<List<ExcursionResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<ExcursionResponseDto>> GetAllByLocation(string location)
-    {
-        var excursions = _excursionRepository.GetAll(x => x.Location == location);
-        var responses = excursions.Select(x => (ExcursionResponseDto)x).ToList();
-
-        return new Response<List<ExcursionResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
-    public Response<List<ExcursionResponseDto>> GetAllByStartDateRange(DateTime min, DateTime max)
-    {
-        var excursions = _excursionRepository.GetAll(x => x.StartDate <= max && x.StartDate >= min);
-        var responses = excursions.Select(x => (ExcursionResponseDto)x).ToList();
-
-        return new Response<List<ExcursionResponseDto>>()
-        {
-            Data = responses,
-            StatusCode = System.Net.HttpStatusCode.OK
-        };
-    }
-
     public Response<List<ExcursionDetailDto>> GetAllDetails()
     {
         var details = _excursionRepository.GetAllExcursionDetails();
@@ -171,6 +111,62 @@ public class ExcursionService : IExcursionService
         return new Response<List<ExcursionDetailDto>>()
         {
             Data = details,
+            StatusCode = System.Net.HttpStatusCode.OK
+        };
+    }
+
+    public Response<List<ExcursionResponseDto>> GetAllFiltered(
+        DateTime? minStartDate, 
+        DateTime? maxStartDate, 
+        DateTime? minEndDate, 
+        DateTime? maxEndDate, 
+        decimal? minCost, 
+        decimal? maxCost, 
+        string? location)
+    {
+        var filteredExcursions = _excursionRepository.GetAll();
+
+        //applying filters based on the provided values
+        if (!string.IsNullOrEmpty(location))
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.Location == location).ToList();
+        }
+
+        if (minCost != null && minCost >= 0)
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.Cost >= minCost).ToList();
+        }
+
+        if (maxCost != null && maxCost >= 0)
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.Cost <= maxCost).ToList();
+        }
+
+        if (minStartDate != null)
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.StartDate >= minStartDate).ToList();
+        }
+
+        if (maxStartDate != null)
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.StartDate <= maxStartDate).ToList();
+        }
+
+        if (minEndDate != null)
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.EndDate >= minEndDate).ToList();
+        }
+
+        if (maxEndDate != null)
+        {
+            filteredExcursions = filteredExcursions.Where(x => x.EndDate <= maxEndDate).ToList();
+        }
+
+        var responses = filteredExcursions.Select(x => (ExcursionResponseDto)x).ToList();
+
+        return new Response<List<ExcursionResponseDto>>()
+        {
+            Data = responses,
             StatusCode = System.Net.HttpStatusCode.OK
         };
     }
@@ -230,28 +226,6 @@ public class ExcursionService : IExcursionService
         {
             _tripRules.TripIsPresent(tripId);
             var details = _excursionRepository.GetExcursionDetailsByTripId(tripId);
-            return new Response<List<ExcursionDetailDto>>()
-            {
-                Data = details,
-                StatusCode = System.Net.HttpStatusCode.OK
-            };
-        }
-        catch (BusinessException ex)
-        {
-            return new Response<List<ExcursionDetailDto>>()
-            {
-                Message = ex.Message,
-                StatusCode = System.Net.HttpStatusCode.BadRequest
-            };
-        }
-    }
-
-    public Response<List<ExcursionDetailDto>> GetDetailsByUserId(int userId)
-    {
-        try
-        {
-            _userRules.UserIsPresent(userId);
-            var details = _excursionRepository.GetExcursionDetailsByUserId(userId);
             return new Response<List<ExcursionDetailDto>>()
             {
                 Data = details,

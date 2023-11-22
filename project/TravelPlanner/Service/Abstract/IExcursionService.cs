@@ -18,14 +18,17 @@ public interface IExcursionService
     Response<ExcursionResponseDto> GetById(Guid id);
     Response<List<ExcursionResponseDto>> GetAll();
 
-    Response<List<ExcursionResponseDto>> GetAllByStartDateRange(DateTime min, DateTime max);
-    Response<List<ExcursionResponseDto>> GetAllByEndDateRange(DateTime min, DateTime max);
-    Response<List<ExcursionResponseDto>> GetAllByCostLessThan(decimal costThreshold);
-    Response<List<ExcursionResponseDto>> GetAllByCostMoreThan(decimal costThreshold);
-    Response<List<ExcursionResponseDto>> GetAllByLocation(string location);
+    Response<List<ExcursionResponseDto>> GetAllFiltered(
+        DateTime? minStartDate,
+        DateTime? maxStartDate,
+        DateTime? minEndDate,
+        DateTime? maxEndDate,
+        decimal? minCost,
+        decimal? maxCost,
+        string? location
+    );
 
     Response<ExcursionDetailDto> GetDetailById(Guid id);
     Response<List<ExcursionDetailDto>> GetAllDetails();
-    Response<List<ExcursionDetailDto>> GetDetailsByUserId(int userId); //extra method
     Response<List<ExcursionDetailDto>> GetDetailsByTripId(Guid tripId);
 }
