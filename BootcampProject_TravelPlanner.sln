@@ -23,9 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Shared", "corePackages
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.CrossCuttingConcerns", "corePackages\Core.CrossCuttingConcerns\Core.CrossCuttingConcerns.csproj", "{CA7539C3-27F3-456E-AD89-E20F4A19B579}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "databaseDiagram", "databaseDiagram", "{151DE8D0-7174-4F43-BE02-1ADA2D05DACE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37508FB1-29F5-4692-91AF-4C5EBDF1EE11}"
 	ProjectSection(SolutionItems) = preProject
 		database_diagram.png = database_diagram.png
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
