@@ -42,7 +42,7 @@ This project is a Travel Planner API built using .NET 7.0 and Entity Framework C
 ## Entity Relationships
 
 - Users can have multiple trips, but a trip can be associated with one user
-- Trips can have multiple Excursions, but an xxcursion can be associated with one trip
+- Trips can have multiple Excursions, but an excursion can be associated with one trip
 
 ## Database
 
